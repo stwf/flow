@@ -857,7 +857,7 @@ defmodule Flow do
       Flow.through_specs(some_flow, specs)
 
   """
-  @spec through_specs(t, [{Supervisor.child_spec(), keyword()}], keyword()) :: t
+  @spec through_specs(t, [{Supervisor.child_spec() | {module(), term()} | module(), keyword()}], keyword()) :: t
   def through_specs(flow, producer_consumers, options \\ [])
 
   def through_specs(%Flow{} = flow, [_ | _] = producer_consumers, options) do
